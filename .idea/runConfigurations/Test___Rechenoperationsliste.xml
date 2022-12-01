@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Test - Rechenoperationsliste" type="Application" factoryName="Application" folderName="H04">
+    <option name="MAIN_CLASS_NAME" value="TestRechenoperationsliste" />
+    <module name="H04" />
+    <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

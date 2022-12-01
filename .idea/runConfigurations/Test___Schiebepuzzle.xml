@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Test - Schiebepuzzle" type="Application" factoryName="Application" folderName="H07">
+    <option name="MAIN_CLASS_NAME" value="TestSchiebepuzzle" />
+    <module name="H07" />
+    <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

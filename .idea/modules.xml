@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/H01/H01.iml" filepath="$PROJECT_DIR$/H01/H01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H02/H02.iml" filepath="$PROJECT_DIR$/H02/H02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H04/H04.iml" filepath="$PROJECT_DIR$/H04/H04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H05/H05.iml" filepath="$PROJECT_DIR$/H05/H05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H07/H07.iml" filepath="$PROJECT_DIR$/H07/H07.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H08/H08.iml" filepath="$PROJECT_DIR$/H08/H08.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H09/H09.iml" filepath="$PROJECT_DIR$/H09/H09.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H10/H10.iml" filepath="$PROJECT_DIR$/H10/H10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H11/H11.iml" filepath="$PROJECT_DIR$/H11/H11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H12/H12.iml" filepath="$PROJECT_DIR$/H12/H12.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H13/H13.iml" filepath="$PROJECT_DIR$/H13/H13.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java-Hausaufgaben.iml" filepath="$PROJECT_DIR$/.idea/Java-Hausaufgaben.iml" />
+    </modules>
+  </component>
+</project>
