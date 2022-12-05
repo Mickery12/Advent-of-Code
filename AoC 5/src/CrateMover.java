@@ -7,7 +7,7 @@ import java.util.Stack;
 
 public class CrateMover {
     
-    private static List<String> fillList(Path path) throws IOException {
+    private static List<String> createList(Path path) throws IOException {
         return Files.readAllLines(Path.of(path.toUri()));
     }
     
@@ -28,8 +28,8 @@ public class CrateMover {
         if (input < 0 || input > 2){
             throw new NumberFormatException("Es gibt nur 2 Art und Weisen wie man Crates verschieben kann, deshalb bitte entweder 1 oder 2 eingeben.");
         }
-        List<String> stackInput = fillList(Path.of("StackInput.txt"));
-        List<String> moveInput = fillList(Path.of("MoveInput.txt"));
+        List<String> stackInput = createList(Path.of("StackInput.txt"));
+        List<String> moveInput = createList(Path.of("MoveInput.txt"));
         var stacks = new ArrayList<Stack<Character>>();
         
         for(int i = 0; i < 9; ++i) {
