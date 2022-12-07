@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Test - Goldpreis" type="Application" factoryName="Application" folderName="H02">
-    <option name="MAIN_CLASS_NAME" value="GoldpreisTest" />
-    <module name="H02" />
+  <configuration default="false" name="AoC 1" type="Application" factoryName="Application" folderName="AoC">
+    <option name="MAIN_CLASS_NAME" value="Main" />
+    <module name="AoC 1" />
     <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
     <method v="2">
       <option name="Make" enabled="true" />
