@@ -9,20 +9,29 @@ public class PuzzleSolver {
         return Files.readAllLines(path);
     }
 
+    private static int calculateAllPositionsVisited(Point[] tails){
+        return tails[9].getPositionsVisited().size();
+    }
+  
     public static int solvePuzzle(int puzzlePart) throws IOException {
         List<String> input = createList(Path.of("Input.txt"));
         var head = new Point(0, 0);
-        var tail = new Point(head);
-        for (String s: input){
-            char[] ca = s.toCharArray();
-            head.calculatePostionHead(ca[0], ca[2]-48, head, tail);
-        }
+        Point[] tails = {new Point(head), new Point(head), new Point(head), new Point(head), new Point(head), new Point(head), new Point(head), new Point(head), new Point(head), new Point(head)};
+        
         if(puzzlePart == 1){
-            return tail.countPositionsVisitedAtLeastOnce();
+            for (String s: input){
+                char[] ca = s.toCharArray();
+                tails[0].calculatePostionHead(ca[0], Integer.parseInt(s.substring(2)), tails[0], tails[1], 1, tails);
+            }
+            return tails[1].positionsVisitedTotal();
         }
 
         else {
-            return -1;
+            for (String s: input){
+                char[] ca = s.toCharArray();
+                tails[0].calculatePostionHead(ca[0], Integer.parseInt(s.substring(2)), tails[0], tails[1], 2, tails);
+            }
+            return calculateAllPositionsVisited(tails);
         }
     }
 }

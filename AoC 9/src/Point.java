@@ -5,8 +5,8 @@ public class Point {
     private int y;
 
     private int[] position;
-
-    private ArrayList<int[]> positionsVisited = new ArrayList<>();
+    
+    private ArrayList<Point> positionsVisited = new ArrayList<>();
 
     public Point (int x, int y){
         setX(x);
@@ -38,6 +38,9 @@ public class Point {
         this.y = pos[1];
     }
 
+    public ArrayList<Point> getPositionsVisited(){
+        return positionsVisited;
+    }
     public int getX(){
         return x;
     }
@@ -50,11 +53,15 @@ public class Point {
         return position;
     }
 
-    public int countPositionsVisitedAtLeastOnce(){
+    public int positionsVisitedTotal(){
         return positionsVisited.size();
     }
+    
+    private boolean comparePosition(int[] pos){
+        return (this.getPosition()[0] == pos[0] && this.getPosition()[1] == pos[1]);
+    }
 
-    public void calculatePostionHead(char dir, int moves, Point head, Point tail){
+    public void calculatePostionHead(char dir, int moves, Point head, Point tail, int puzzlePart, Point[] tails){
 
         for(int i = 0; i < moves; i++){
             if(dir == 'R'){
@@ -69,18 +76,16 @@ public class Point {
             else if (dir == 'D'){
                 head.setPosition(head.getX(), head.getY() - 1);
             }
-            calculatePositionTail(head, tail);
-        }
-    }
-
-    private boolean posAlreadyVisited(int[] pos){
-        for (int[] posVisited: positionsVisited) {
-            if(pos[0] == posVisited[0] && pos[1] == posVisited[1]){
-                return true;
+            if(puzzlePart == 1){
+                calculatePositionTail(head, tail);
             }
+            else {
+                calculatePositionTails(tails);
+            }
+            head.positionsVisited.add(new Point(head));
         }
-        return false;
     }
+    
     private boolean isAdjacent(int[] positionHead, int[] positionTail) {
         if (positionHead[0] == positionTail[0] || positionHead[1] == positionTail[1]) {
             return 1 >= Math.abs(positionHead[0] - positionTail[0]) + Math.abs(positionHead[1] - positionTail[1]);
@@ -90,6 +95,60 @@ public class Point {
         }
     }
 
+    private boolean positionAlreadyVisited(Point p){
+        for (Point pV: this.positionsVisited) {
+            if(pV.comparePosition(p.getPosition()))
+                return true;
+        }
+        return false;
+    }
+    
+    private void calculatePositionTails(Point[] tails ){
+        
+        for(int i = 1;  i < tails.length; i++){
+            int[] positionHead = tails[i-1].getPosition();
+            int[] positionTail = tails[i].getPosition();
+            if(isAdjacent(positionHead, positionTail)){
+                continue;
+            }
+            if(!tails[9].positionAlreadyVisited(tails[i])){
+                tails[9].positionsVisited.add(new Point(tails[i]));
+            }
+            
+            if(positionHead[0] > positionTail[0] && positionHead[1] == positionTail[1]){
+                tails[i].setPosition(tails[i].getX() + 1, tails[i].getY());
+            }
+            
+            else if(positionHead[0] < positionTail[0] && positionHead[1] == positionTail[1]){
+                tails[i].setPosition(tails[i].getX() - 1, tails[i].getY());
+            }
+            else if(positionHead[1] > positionTail[1] && positionHead[0] == positionTail[0]){
+                tails[i].setPosition(tails[i].getX(), tails[i].getY() + 1);
+            }
+            
+            else if(positionHead[1] < positionTail[1] && positionHead[0] == positionTail[0]){
+                tails[i].setPosition(tails[i].getX(),tails[i].getY() - 1);
+            }
+            
+            else if(positionHead[0] > positionTail[0] && positionHead[1] > positionTail[1]){
+                tails[i].setPosition(tails[i].getX() + 1, tails[i].getY() + 1);
+            }
+            
+            else if(positionHead[0] < positionTail[0] && positionHead[1] > positionTail[1]){
+                tails[i].setPosition(tails[i].getX() - 1, tails[i].getY() + 1);
+            }
+            else if(positionHead[0] > positionTail[0]){
+                tails[i].setPosition(tails[i].getX() + 1, tails[i].getY() - 1);
+            }
+            else if(positionHead[0] < positionTail[0]){
+                tails[i].setPosition(tails[i].getX() - 1, tails[i].getY() - 1);
+            }
+            if(!tails[9].positionAlreadyVisited(tails[i])){
+                tails[9].positionsVisited.add(new Point(tails[i]));
+            }
+        }
+
+    }
     public void calculatePositionTail(Point head, Point tail){
         int[] positionHead = head.getPosition();
         int[] positionTail = tail.getPosition();
@@ -97,8 +156,10 @@ public class Point {
         if(isAdjacent(positionHead, positionTail)){
             return;
         }
-        if(!tail.posAlreadyVisited(positionTail)){
-            tail.positionsVisited.add(positionTail);
+        
+        
+        if(!tail.positionAlreadyVisited(tail)){
+            tail.positionsVisited.add(new Point(tail));
         }
 
         if(positionHead[0] > positionTail[0] && positionHead[1] == positionTail[1]){
@@ -128,6 +189,9 @@ public class Point {
         }
         else if(positionHead[0] < positionTail[0]){
             tail.setPosition(tail.getX() - 1, tail.getY() - 1);
+        }
+        if(!tail.positionAlreadyVisited(tail)){
+            tail.positionsVisited.add(new Point(tail));
         }
     }
 }
