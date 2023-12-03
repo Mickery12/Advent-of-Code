@@ -177,20 +177,21 @@ public static class Solver
         var allStars = AllStars(data);
         var allNumbers = AllNumbers(data);
         var sum = 0;
+        var gears = 0;
 
         foreach (var star in allStars)
         {
             var adjacentNumbers = allNumbers.Where(tuple =>
-                    (tuple.Item2 == star.Item2 - 1 && tuple.Item3 == star.Item3 - 3) ||
+                    (tuple.Item2 == star.Item2 - 1 && tuple.Item3 == star.Item3 - 3 && tuple.Item1 >= 100) ||
                     (tuple.Item2 == star.Item2 - 1 && tuple.Item3 == star.Item3 - 2) ||
                     (tuple.Item2 == star.Item2 - 1 && tuple.Item3 == star.Item3 - 1) ||
                     (tuple.Item2 == star.Item2 - 1 && tuple.Item3 == star.Item3)     ||
                     (tuple.Item2 == star.Item2 - 1 && tuple.Item3 == star.Item3 + 1) ||
-                    (tuple.Item2 == star.Item2     && tuple.Item3 == star.Item3 - 3) ||
+                    (tuple.Item2 == star.Item2     && tuple.Item3 == star.Item3 - 3 && tuple.Item1 >= 100) ||
                     (tuple.Item2 == star.Item2     && tuple.Item3 == star.Item3 - 2) ||
                     (tuple.Item2 == star.Item2     && tuple.Item3 == star.Item3 - 1) ||
                     (tuple.Item2 == star.Item2     && tuple.Item3 == star.Item3 + 1) ||
-                    (tuple.Item2 == star.Item2 + 1 && tuple.Item3 == star.Item3 - 3) ||
+                    (tuple.Item2 == star.Item2 + 1 && tuple.Item3 == star.Item3 - 3 && tuple.Item1 >= 100) ||
                     (tuple.Item2 == star.Item2 + 1 && tuple.Item3 == star.Item3 - 2) ||
                     (tuple.Item2 == star.Item2 + 1 && tuple.Item3 == star.Item3 - 1) ||
                     (tuple.Item2 == star.Item2 + 1 && tuple.Item3 == star.Item3)     ||
@@ -200,9 +201,11 @@ public static class Solver
                 .ToList();
             if (adjacentNumbers.Count is 2)
             {
+                gears++;
                 sum += adjacentNumbers.Aggregate((a, b) => a * b);
             }
         }
+        Console.WriteLine(gears);
         return sum;
     }
     private static IList<Tuple<int, int, int>> AllNumbers(IEnumerable<string> rows)
