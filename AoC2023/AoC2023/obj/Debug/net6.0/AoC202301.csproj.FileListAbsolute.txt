@@ -1,0 +1,16 @@
+O:\.Uni\AoC2023\AoC2023\AoC202301\obj\Debug\net6.0\AoC202301.GeneratedMSBuildEditorConfig.editorconfig
+O:\.Uni\AoC2023\AoC2023\AoC202301\obj\Debug\net6.0\AoC202301.AssemblyInfoInputs.cache
+O:\.Uni\AoC2023\AoC2023\AoC202301\obj\Debug\net6.0\AoC202301.AssemblyInfo.cs
+O:\.Uni\AoC2023\AoC2023\AoC202301\obj\Debug\net6.0\AoC202301.csproj.CoreCompileInputs.cache
+O:\.Uni\AoC2023\AoC2023\AoC202301\bin\Debug\net6.0\AoC202301.exe
+O:\.Uni\AoC2023\AoC2023\AoC202301\bin\Debug\net6.0\AoC202301.deps.json
+O:\.Uni\AoC2023\AoC2023\AoC202301\bin\Debug\net6.0\AoC202301.runtimeconfig.json
+O:\.Uni\AoC2023\AoC2023\AoC202301\bin\Debug\net6.0\AoC202301.dll
+O:\.Uni\AoC2023\AoC2023\AoC202301\bin\Debug\net6.0\AoC202301.pdb
+O:\.Uni\AoC2023\AoC2023\AoC202301\obj\Debug\net6.0\AoC202301.dll
+O:\.Uni\AoC2023\AoC2023\AoC202301\obj\Debug\net6.0\refint\AoC202301.dll
+O:\.Uni\AoC2023\AoC2023\AoC202301\obj\Debug\net6.0\AoC202301.pdb
+O:\.Uni\AoC2023\AoC2023\AoC202301\obj\Debug\net6.0\AoC202301.genruntimeconfig.cache
+O:\.Uni\AoC2023\AoC2023\AoC202301\obj\Debug\net6.0\ref\AoC202301.dll
+O:\.Uni\AoC2023\AoC2023\AoC202301\bin\Debug\net6.0\data.txt
+O:\.Uni\AoC2023\AoC2023\AoC202301\bin\Debug\net6.0\testData.txt
