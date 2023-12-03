@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "O:\\.Uni\\AoC2023\\AoC2023\\AoC2023.csproj": {}
+    "O:\\.Uni\\Advent of Code\\AoC2023\\AoC2023\\AoC2023.csproj": {}
   },
   "projects": {
-    "O:\\.Uni\\AoC2023\\AoC2023\\AoC2023.csproj": {
+    "O:\\.Uni\\Advent of Code\\AoC2023\\AoC2023\\AoC2023.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "O:\\.Uni\\AoC2023\\AoC2023\\AoC2023.csproj",
+        "projectUniqueName": "O:\\.Uni\\Advent of Code\\AoC2023\\AoC2023\\AoC2023.csproj",
         "projectName": "AoC2023",
-        "projectPath": "O:\\.Uni\\AoC2023\\AoC2023\\AoC2023.csproj",
+        "projectPath": "O:\\.Uni\\Advent of Code\\AoC2023\\AoC2023\\AoC2023.csproj",
         "packagesPath": "C:\\Users\\mconrads\\.nuget\\packages\\",
-        "outputPath": "O:\\.Uni\\AoC2023\\AoC2023\\obj\\",
+        "outputPath": "O:\\.Uni\\Advent of Code\\AoC2023\\AoC2023\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mconrads\\AppData\\Roaming\\NuGet\\NuGet.Config",

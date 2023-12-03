@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AoC2023
-build_property.ProjectDir = O:\.Uni\AoC2023\AoC2023\
+build_property.ProjectDir = O:\.Uni\Advent of Code\AoC2023\AoC2023\
