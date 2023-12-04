@@ -1,4 +1,4 @@
-﻿using AoC2023.AoC202303;
+﻿using AoC2023.AoC202304;
 namespace AoC2023.AoC2023_Program;
 
 public static class Program

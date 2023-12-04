@@ -2,6 +2,7 @@
 using System.IO.Enumeration;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
+using Microsoft.VisualBasic;
 
 namespace AoC2023.AoC202303;
 
@@ -176,38 +177,41 @@ public static class Solver
         var data = dataEnumerable.ToArray();
         var allStars = AllStars(data);
         var allNumbers = AllNumbers(data);
+        var allPairs = new List<List<int>>();
         var sum = 0;
-        var gears = 0;
 
         foreach (var star in allStars)
         {
             var adjacentNumbers = allNumbers.Where(tuple =>
                     (tuple.Item2 == star.Item2 - 1 && tuple.Item3 == star.Item3 - 3 && tuple.Item1 >= 100) ||
-                    (tuple.Item2 == star.Item2 - 1 && tuple.Item3 == star.Item3 - 2) ||
+                    (tuple.Item2 == star.Item2 - 1 && tuple.Item3 == star.Item3 - 2 && tuple.Item1 >= 10) ||
                     (tuple.Item2 == star.Item2 - 1 && tuple.Item3 == star.Item3 - 1) ||
                     (tuple.Item2 == star.Item2 - 1 && tuple.Item3 == star.Item3)     ||
                     (tuple.Item2 == star.Item2 - 1 && tuple.Item3 == star.Item3 + 1) ||
                     (tuple.Item2 == star.Item2     && tuple.Item3 == star.Item3 - 3 && tuple.Item1 >= 100) ||
-                    (tuple.Item2 == star.Item2     && tuple.Item3 == star.Item3 - 2) ||
+                    (tuple.Item2 == star.Item2     && tuple.Item3 == star.Item3 - 2 && tuple.Item1 >= 10) ||
                     (tuple.Item2 == star.Item2     && tuple.Item3 == star.Item3 - 1) ||
                     (tuple.Item2 == star.Item2     && tuple.Item3 == star.Item3 + 1) ||
                     (tuple.Item2 == star.Item2 + 1 && tuple.Item3 == star.Item3 - 3 && tuple.Item1 >= 100) ||
-                    (tuple.Item2 == star.Item2 + 1 && tuple.Item3 == star.Item3 - 2) ||
+                    (tuple.Item2 == star.Item2 + 1 && tuple.Item3 == star.Item3 - 2 && tuple.Item1 >= 10) ||
                     (tuple.Item2 == star.Item2 + 1 && tuple.Item3 == star.Item3 - 1) ||
                     (tuple.Item2 == star.Item2 + 1 && tuple.Item3 == star.Item3)     ||
                     (tuple.Item2 == star.Item2 + 1 && tuple.Item3 == star.Item3 + 1)
                     )
-                .Select(tuple => tuple.Item1)
                 .ToList();
-            if (adjacentNumbers.Count is 2)
-            {
-                gears++;
-                sum += adjacentNumbers.Aggregate((a, b) => a * b);
-            }
+            if (adjacentNumbers.Count is not 2) continue;
+            allPairs.Add(adjacentNumbers.Select(tuple => tuple.Item1).ToList());
+            sum += adjacentNumbers.Select(tuple => tuple.Item1).Aggregate((a, b) => a * b);
         }
-        Console.WriteLine(gears);
+
+        foreach (var number in allNumbers)
+        {
+            Console.Write(number.Item1 + ",");
+            Console.WriteLine();
+        }
         return sum;
     }
+
     private static IList<Tuple<int, int, int>> AllNumbers(IEnumerable<string> rows)
     {
         var rowNumber = 0;
@@ -221,7 +225,7 @@ public static class Solver
         return allNumbers;
     }
 
-    private static IList<Tuple<string, int, int>> AllStars(IEnumerable<string> lines)
+    private static IEnumerable<Tuple<string, int, int>> AllStars(IEnumerable<string> lines)
     {
         var lineNumber = 0;
         var allNumbers = new List<Tuple<string, int, int>>();
